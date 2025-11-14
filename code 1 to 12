@@ -1,0 +1,332 @@
+                                        
+ //code 1
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter the first number" << endl;
+    cin >> a;
+    cout << "Enter the second number" << endl;
+    cin >> b;
+    cout << "The sum of the 2 numbers is = " << a + b << endl;
+    return 0;
+}
+
+//code 2
+#include <iostream>
+using namespace std;
+
+int main () {
+    int num;
+    cout << "Enter the number: " << endl;
+    cin >> num;
+    
+    if (num % 2 == 0) {
+        cout << "Number is even." << endl;
+    } else {
+        cout << "The number is odd." << endl;
+    }
+    return 0;
+}
+
+
+//code 3
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2;
+    char operation;
+
+    cout << "Enter number 1: " << endl;
+    cin >> num1;
+    cout << "Enter number 2: " << endl;
+    cin >> num2;
+    cout << "Enter the operation (+, -, *, /, %): " << endl;
+    cin >> operation;
+
+    switch (operation) {
+        case '+':
+            cout << "Sum = " << num1 + num2 << endl;
+            break;
+        case '-':
+            cout << "Subtraction = " << num1 - num2 << endl;
+            break;
+        case '*':
+            cout << "Product = " << num1 * num2 << endl;
+            break;
+        case '/':
+            // Using (float) for accurate division
+            cout << "Division = " << (float)num1 / num2 << endl; 
+            break;
+        case '%':
+            cout << "Remainder = " << num1 % num2 << endl;
+            break;
+        default:
+            cout << "Invalid operation." << endl;
+    }
+    return 0;
+}
+
+
+//code4
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 0; i <= 10; i++) {
+        cout << i << endl;
+    }
+    return 0;
+}
+
+//code 5
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 10; i >= 0; i--) {
+        cout << i << endl;
+    }
+    return 0;
+}
+
+//code6
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows = 5; // Default number of rows
+    for (int i = 1; i <= rows; i++){
+        // Loop to print spaces (for alignment)
+        for (int j = 1; j <= rows - i; j++) {
+            cout << " ";
+        }
+        // Loop to print stars
+        for (int k = 1; k <= i; k++){ 
+            cout << "*"; 
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+//code7
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter number of rows: "<< endl;
+    cin >> num;
+
+    for (int i = 1; i <= num; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+//code8
+#include <iostream>
+using namespace namespace std;
+
+int main () {
+    int num;
+    cout << "Enter the number of rows: " << endl;
+    cin >> num;
+    
+    for (int i = 1; i <= num; i++) {
+        for(int j = 1; j <= i; j++) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+//code 9
+#include <iostream>
+#include <string> // Required for string and getline
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNumber;
+public:
+    void acceptData() {
+        cout << "Enter student name: ";
+        // Use getline for names with spaces
+        // cin.ignore() is often needed to clear the buffer before getline
+        cin.ignore(); 
+        getline(cin, name);
+        cout << "Enter roll number: ";
+        cin >> rollNumber;
+    }
+    void displayData() {
+        cout << "\nStudent Details: " << endl;
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.acceptData();
+    s.displayData();
+    return 0;
+}
+
+
+
+//code 10
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    int bookID;
+public:
+    void getData() {
+        cout << "Enter Book ID: ";
+        cin >> bookID;
+        cin.ignore(); 
+        cout << "Enter Title: ";
+        getline(cin, title);
+        cout << "Enter Author: ";
+        getline(cin, author);
+    }
+    
+    void putData() const {
+        cout << "--- Book Details (ID: " << bookID << ") ---" << endl;
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+    }
+};
+
+int main() {
+    const int NUM_BOOKS = 3;
+    Book library[NUM_BOOKS]; 
+
+    cout << "### Enter Details for " << NUM_BOOKS << " Books ###" << endl;
+    for (int i = 0; i < NUM_BOOKS; ++i) {
+        cout << "\nEnter details for Book " << i + 1 << endl;
+        library[i].getData();
+    }
+
+    cout << "\n### Displaying All Book Details ###" << endl;
+    for (int i = 0; i < NUM_BOOKS; ++i) {
+        library[i].putData();
+    }
+    
+    return 0;
+}
+
+
+
+//code11 
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNumber;
+    float percentage;
+public:
+    void accept() {
+        cout << "Enter Roll Number: ";
+        cin >> rollNumber;
+        cin.ignore(); 
+        cout << "Enter Name: ";
+        getline(cin, name);
+        cout << "Enter Percentage: ";
+        cin >> percentage;
+    }
+    
+    void display() const {
+        cout << "\n--- Student (Roll No: " << rollNumber << ") ---" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    const int N = 2; 
+    Student class_students[N];
+
+    cout << "### Enter Data for " << N << " Students ###" << endl;
+    for (int i = 0; i < N; ++i) {
+        cout << "\nInput for Student " << i + 1 << ":" << endl;
+        class_students[i].accept();
+    }
+
+    cout << "\n### Displaying Data ###" << endl;
+    for (int i = 0; i < N; ++i) {
+        class_students[i].display();
+    }
+    
+    return 0;
+}
+
+
+
+
+//code 12
+#include <iostream>
+using namespace std;
+
+class Number;
+
+int findMax(Number n1, Number n2);
+
+class Number {
+private:
+    int value;
+public:
+    Number(int v = 0) : value(v) {} 
+
+    void getNumber() {
+        cout << "Enter a number: ";
+        cin >> value;
+    }
+
+    friend int findMax(Number n1, Number n2);
+};
+
+int findMax(Number n1, Number n2) {
+    if (n1.value > n2.value) {
+        return n1.value;
+    } else {
+        return n2.value;
+    }
+}
+
+int main() {
+    Number A, B; 
+
+    cout << "For Object A:" << endl;
+    A.getNumber();
+    
+    cout << "For Object B:" << endl;
+    B.getNumber();
+
+    int maximum = findMax(A, B);
+
+    cout << "\nMaximum number using friend function is: " << maximum << endl;
+    return 0;
+}
+
+
+
+
+
